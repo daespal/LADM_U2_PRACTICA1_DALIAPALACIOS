@@ -12,7 +12,7 @@ import kotlin.random.Random
 
 class Lienzo(li:MainActivity) : View(li)  {
     var li=li
-    val nieves = Array<Nieve>(200,{ Nieve(this) })
+    var nieves = Array<Nieve>(10,{ Nieve(this) })
 
 
     val corutina = GlobalScope.launch {
@@ -77,4 +77,17 @@ class Lienzo(li:MainActivity) : View(li)  {
 
     }
 
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        event.x //el x del toque, donde tocaste de forma horizontal
+        event.y //el y del toque, donde tocaste de forma vertical
+
+        when(event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                //oprimir
+                var ran = Random.nextInt(250)
+                nieves = Array<Nieve>(ran,{ Nieve(this) })
+            }
+        }
+        return true
+    }
 }
