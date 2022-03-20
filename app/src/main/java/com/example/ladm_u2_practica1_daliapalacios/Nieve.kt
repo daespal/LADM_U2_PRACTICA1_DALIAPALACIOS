@@ -12,6 +12,7 @@ class Nieve (l:Lienzo){
     var movX = 0f
     var movY = 0f
     var color = Color.BLACK
+    var ran = Random(60)
 
     init {
         x = rand(1000)
@@ -40,7 +41,8 @@ class Nieve (l:Lienzo){
     fun pintar(canvas: Canvas){
         var p = Paint()
         p.color = color
-        canvas.drawCircle(x,y,50f,p)
+        var radio = rand(60)
+        canvas.drawCircle(x,y,radio,p)
     }
 
 }
